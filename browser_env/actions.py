@@ -391,6 +391,10 @@ def is_equivalent(a: Action, b: Action) -> bool:
             return a["pw_code"] == b["pw_code"]
         case ActionTypes.STOP:
             return a["answer"] == b["answer"]
+        case ActionTypes.CLEAR:
+            return True
+        case ActionTypes.UPLOAD:
+            return True
         case _:
             raise ValueError(f"Unknown action type: {a['action_type']}")
 
@@ -705,7 +709,7 @@ def create_upload_action(
     action = create_none_action()
     action.update(
         {
-            "action_type": ActionTypes.TYPE,
+            "action_type": ActionTypes.UPLOAD,
             "element_id": element_id,
             "element_role": _role2id[element_role],
             "element_name": element_name,

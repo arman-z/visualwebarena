@@ -454,7 +454,7 @@ def reddit_get_latest_comment_obj_by_username(
 ) -> Dict[str, Any]:
     try:
         comment_tree = reddit_get_post_comment_tree(page)
-        latest_time = datetime.min.replace(tzinfo=timezone.utc)
+        latest_time = datetime.min#.replace(tzinfo=timezone.utc)
         comment = {}
 
         def dfs(node):
@@ -500,7 +500,7 @@ def reddit_get_parent_comment_obj_of_latest_comment_by_username(
 ) -> Dict[str, Any]:
     try:
         comment_tree = reddit_get_post_comment_tree(page)
-        latest_time = datetime.min.replace(tzinfo=timezone.utc)
+        latest_time = datetime.min#.replace(tzinfo=timezone.utc)
         comment = {}
 
         def dfs(node):

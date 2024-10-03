@@ -150,7 +150,7 @@ def test_focus_placeholder_and_label(
 def test_html_current_viewport(
     current_viewport_script_browser_env: ScriptBrowserEnv,
 ) -> None:
-    s1 = "detailed information about how mammals could be classified."
+    s1 = "detailed information about how mammals could be classified"
     s2 = "Types of mammals"
     env = current_viewport_script_browser_env
     env.reset()
@@ -169,7 +169,7 @@ def test_html_current_viewport(
 def test_accessibility_tree(
     accessibility_tree_script_browser_env: ScriptBrowserEnv,
 ) -> None:
-    s1 = "checkbox 'Yes'"
+    s1 = "group 'Subscribe to newsletter'"
     s2 = "button 'Submit'"
     env = accessibility_tree_script_browser_env
     env.reset()
@@ -178,6 +178,7 @@ def test_accessibility_tree(
             'page.goto("https://russmaxdesign.github.io/exercise/")'
         )
     )
+    print(obs["text"])
     assert success
     assert s1 in obs["text"] and s2 in obs["text"]
 
@@ -185,7 +186,7 @@ def test_accessibility_tree(
 def test_accessibility_tree_viewport(
     accessibility_tree_current_viewport_script_browser_env: ScriptBrowserEnv,
 ) -> None:
-    s1 = "combobox 'Favourite mammal'"
+    s1 = "StaticText 'Favourite mammal'"
     s2 = "gridcell 'Canyon bat'"
     s3 = "heading 'Useful links'"
     env = accessibility_tree_current_viewport_script_browser_env

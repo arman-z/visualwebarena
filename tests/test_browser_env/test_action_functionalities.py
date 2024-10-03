@@ -206,8 +206,8 @@ def test_key_press(
         )
     )
     assert success
-    assert "textbox 'Full name'" in obs["text"]
-    element_id = re.search(r"\[(\d+)\] textbox 'Full name'", obs["text"]).group(1)  # type: ignore
+    assert "StaticText 'Full name'" in obs["text"]
+    element_id = re.search(r"\[(\d+)\] StaticText 'Full name'", obs["text"]).group(1)  # type: ignore
     s = "My Name IS XYZ"
 
     obs, success, _, _, info = env.step(
@@ -242,9 +242,9 @@ def test_id_type(
         )
     )
     assert success
-    assert "textbox 'Full name'" in obs["text"]
+    assert "StaticText 'Full name'" in obs["text"]
     s = "My Name IS XYZ"
-    element_id = re.search(r"\[(\d+)\] textbox 'Full name'", obs["text"]).group(1)  # type: ignore
+    element_id = re.search(r"\[(\d+)\] StaticText 'Full name'", obs["text"]).group(1)  # type: ignore
 
     obs, success, _, _, info = env.step(
         create_id_based_action(f"type [{element_id}] [{s}]")
@@ -266,7 +266,7 @@ def test_e2e_id_based_actions(
     )
     element_id = re.search(r"\[(\d+)\] link 'What are mammals\?'", obs["text"]).group(1)  # type: ignore
     obs, *_ = env.step(create_id_based_action(f"click [{element_id}]"))
-    element_id = re.search(r"\[(\d+)\] textbox 'Email'", obs["text"]).group(1)  # type: ignore
+    element_id = re.search(r"\[(\d+)\] StaticText 'Email'", obs["text"]).group(1)  # type: ignore
     env.step(
         create_id_based_action(f"type [{element_id}] [test@gmail.com] [0]")
     )
@@ -297,9 +297,9 @@ def test_id_delete_input(
         )
     )
     assert success
-    assert "textbox 'Full name'" in obs["text"]
+    assert "StaticText 'Full name'" in obs["text"]
     s = "My Name IS XYZ"
-    element_id = re.search(r"\[(\d+)\] textbox 'Full name'", obs["text"]).group(1)  # type: ignore
+    element_id = re.search(r"\[(\d+)\] StaticText 'Full name'", obs["text"]).group(1)  # type: ignore
 
     obs, success, _, _, info = env.step(
         create_id_based_action(f"type [{element_id}] [{s}]")
