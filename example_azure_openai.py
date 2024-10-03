@@ -3,7 +3,7 @@ import os
 
 client = AzureOpenAI(
     azure_endpoint="https://azure-services-fair-openai1-southcentralus.azure-api.net",
-    api_key="af3f46402fa44852b1372ede84245ca8",
+    api_key=os.environ["OPENAI_API_KEY"],
     api_version="2024-06-01"
 )
 
